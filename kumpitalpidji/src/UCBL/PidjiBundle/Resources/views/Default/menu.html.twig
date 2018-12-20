@@ -1,0 +1,88 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                {#<span class="icon-bar"></span>#}
+                {#<span class="icon-bar"></span>#}
+                {#<span class="icon-bar"></span>#}
+            </button>
+            <a class="navbar-brand" href="{{ path("ucbl_pidji_accueil") }}"></a>
+        </div>
+        <ul class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    {% if app.user %}
+                        <a href="{{ path("ucbl_pidji_user_connecter") }}">ACCUEIL</a>
+                    {% else %}
+                        <a href="{{ path("ucbl_pidji_accueil") }}">ACCUEIL</a>
+                    {% endif %}
+                </li>
+
+                <li><a href="{{ path("ucbl_pidji_deposer_annonce") }}">DEPOSER UNE ANNONCE</a></li>
+                <li><a href="{{ path("ucbl_pidji_offres_demandes", {'libelle' : 'Offres' | lower}) }}">OFFRES </a></li>
+                <li><a href="{{ path("ucbl_pidji_offres_demandes", {'libelle': 'Demandes' | lower}) }}">DEMANDES</a></li>
+                <li><a href="{{ path("ucbl_pidji_mes_annonces") }}">MES ANNONCES</a></li>
+                <li class="">
+                    {% if app.user %}
+
+                        <a href="{{ path('fos_user_profile_show') }}" >
+
+                            <i class="fa fa-user" aria-hidden="true"></i> {{ app.user.username }}
+                        </a>
+
+                    {% else %}
+                        <a href="{{ path('fos_user_security_login') }}"  >
+
+                           Connexion
+                        </a>
+                    {% endif %}
+                    {#<ul class="dropdown-menu" aria-labelledby="dLabel">#}
+                          {#<li><a  href="https://cas.univ-lyon1.fr/" target="_blank" >Se connecter avec Lyon</a></li>#}
+                          {#<li><a  href="" target="_blank" >Messages</a></li>#}
+                          {#<li><a  href="" target="_blank" >Mes annonces</a></li>#}
+                          {#<li><a  href="" target="_blank" >Déconnexion</a></li>#}
+                    {#</ul>#}
+                </li>
+                <li>
+                {% if app.user %}
+                <a href="{{ path('fos_user_security_logout') }}" >
+
+                    Déconnexion
+                </a>                </li>
+
+                {% endif %}
+            </ul>
+        </ul>
+    </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

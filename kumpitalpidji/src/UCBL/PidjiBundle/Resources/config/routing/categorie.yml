@@ -1,0 +1,24 @@
+back-office_categorie_index:
+    path:     /
+    defaults: { _controller: "UCBLPidjiBundle:Categorie:index" }
+    methods:  GET
+
+back-office_categorie_show:
+    path:     /{id}/show
+    defaults: { _controller: "UCBLPidjiBundle:Categorie:show" }
+    methods:  GET
+
+back-office_categorie_new:
+    path:     /new
+    defaults: { _controller: "UCBLPidjiBundle:Categorie:new" }
+    methods:  [GET, POST]
+
+back-office_categorie_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "UCBLPidjiBundle:Categorie:edit" }
+    methods:  [GET, POST]
+
+back-office_categorie_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "UCBLPidjiBundle:Categorie:delete" }
+    methods:  DELETE

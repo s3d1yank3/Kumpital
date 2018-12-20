@@ -1,0 +1,24 @@
+back-office_images_index:
+    path:     /
+    defaults: { _controller: "UCBLPidjiBundle:Images:index" }
+    methods:  GET
+
+back-office_images_show:
+    path:     /{id}/show
+    defaults: { _controller: "UCBLPidjiBundle:Images:show" }
+    methods:  GET
+
+back-office_images_new:
+    path:     /new
+    defaults: { _controller: "UCBLPidjiBundle:Images:new" }
+    methods:  [GET, POST]
+
+back-office_images_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "UCBLPidjiBundle:Images:edit" }
+    methods:  [GET, POST]
+
+back-office_images_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "UCBLPidjiBundle:Images:delete" }
+    methods:  DELETE

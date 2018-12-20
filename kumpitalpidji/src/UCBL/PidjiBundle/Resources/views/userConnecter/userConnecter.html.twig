@@ -1,0 +1,64 @@
+{% extends "UCBLPidjiBundle::layout.html.twig" %}
+
+{% block titre %}
+    connecter - {{ parent() }}
+{% endblock %}
+
+{% block css %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{asset("bundles/ucblpidji/css/style.css") }}">
+
+{% endblock %}
+
+
+{% block contenuPrincipal %}
+
+    <div class="container" style="margin-top: 5%">
+        <h4>Toutes les annonces</h4>
+        {% for msg in app.flashes('confirmation_annonce') %}
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>{{ msg }}</strong>
+            </div>
+        {% endfor %}
+
+        {% for msg in app.flashes('erreur_annonce') %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>{{ msg }}</strong>
+            </div>
+        {% endfor %}
+            <div class="row">
+                {% for annonce in listesAnnonces %}
+                    <div class="col-md-4">
+                        <div class="single-blog-item">
+                            <div class="blog-thumnail">
+                                {% for img in annonce.images %}
+                                    {% if loop.index == 1 %}
+                                        <a href="{{ path("ucbl_pidji_annonce_details",{ 'id': annonce.id, 'libelleAnnonce': annonce.types.libelle | lower})}}"><img src="{{ asset('uploadedFiles/annonce_image/'~img.nom) }}" alt="blog-img" height="300px"></a>
+
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            <div class="blog-content">
+                                <h4><a href="#">{{annonce.titre   }}</a></h4>
+                                <p>
+                                    {{ annonce.description | slice(0, 40)  }} ...
+                                </p>
+                                <div class="essai">
+                                    <h3>{{ annonce.prix }} <i class="fa  fa-euro"></i> </h3>
+                                    <a href="{{ path("ucbl_pidji_annonce_details",{ 'id': annonce.id, 'libelleAnnonce': annonce.types.libelle | lower})}}" class="more-btn">Details</a>
+                                </div>
+                            </div>
+                            <span class="blog-date">{{annonce.dateAnnonce |date('d/m/Y, h:m')  }}</span>
+                        </div>
+                    </div>
+                    {% if loop.index % 3 == 0 %}
+                        <hr class="col-md-12">
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+    </div>
+
+{% endblock %}

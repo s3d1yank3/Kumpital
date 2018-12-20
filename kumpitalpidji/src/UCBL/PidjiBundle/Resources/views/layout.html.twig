@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% block css  %}
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        {#<link rel="stylesheet"  type="text/css" href="{{asset("bundles/ucblpidji/css/bootstrap.min.css") }}">#}
+        <link rel="stylesheet" type="text/css" href="{{asset("bundles/ucblpidji/css/style.css") }}">
+        <link rel="stylesheet" type="text/css" href="{{asset("bundles/ucblpidji/css/font-awesome-4.7.0/css/font-awesome.css") }}">
+
+
+    {% endblock %}
+
+    <title>{% block titre %}  Kumpital {% endblock %} </title>
+</head>
+<body>
+<!-- Inclusion du menu !-->
+{#{% include "UCBLPidjiBundle:Default:menu.html.twig" %}#}
+{{ render(controller('UCBLPidjiBundle:Kumpital:menu')) }}
+
+<!-- Block principal!-->
+
+<section>
+    {% block contenuPrincipal %}
+
+    {% endblock %}
+</section>
+
+<!-- Inclusion du pied de page !-->
+{% include "UCBLPidjiBundle:Default:piedDePage.html.twig" %}
+
+{% block js %}
+    <!-- Optional JavaScript -->
+
+    <script   src="{{asset("bundles/ucblpidji/js/jquery.min.js") }}"></script>
+    <script src="{{asset("bundles/ucblpidji/js/popper.js") }}"></script>
+    <script  src="{{asset("bundles/ucblpidji/js/bootstrap.min.js") }}"></script>
+    <script   src="{{asset("bundles/ucblpidji/js/script.js") }}"></script>
+
+
+
+{% endblock %}
+
+
+</body>
+</html>

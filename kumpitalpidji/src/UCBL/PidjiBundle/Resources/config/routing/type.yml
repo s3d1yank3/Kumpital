@@ -1,0 +1,24 @@
+back-office_type_index:
+    path:     /
+    defaults: { _controller: "UCBLPidjiBundle:Type:index" }
+    methods:  GET
+
+back-office_type_show:
+    path:     /{id}/show
+    defaults: { _controller: "UCBLPidjiBundle:Type:show" }
+    methods:  GET
+
+back-office_type_new:
+    path:     /new
+    defaults: { _controller: "UCBLPidjiBundle:Type:new" }
+    methods:  [GET, POST]
+
+back-office_type_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "UCBLPidjiBundle:Type:edit" }
+    methods:  [GET, POST]
+
+back-office_type_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "UCBLPidjiBundle:Type:delete" }
+    methods:  DELETE

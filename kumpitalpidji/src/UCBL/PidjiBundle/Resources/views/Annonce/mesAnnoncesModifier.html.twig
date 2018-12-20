@@ -1,0 +1,55 @@
+{% extends "UCBLPidjiBundle::layout.html.twig" %}
+
+{% block titre %}
+    connecter - {{ parent() }}
+{% endblock %}
+
+{% block css %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{asset("bundles/ucblpidji/css/style.css") }}">
+    <style>
+        a:hover{color: blue;}
+    </style>
+{% endblock %}
+
+
+{% block contenuPrincipal %}
+
+    <div class="container " style="margin-top: 5%;">
+        <h3>Modifier votre annonce</h3>
+
+        {% for msg in app.flashes('confirmation_annonce') %}
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>{{ msg }}</strong>
+            </div>
+        {% endfor %}
+
+        {% for msg in app.flashes('erreur_annonce') %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>{{ msg }}</strong>
+            </div>
+        {% endfor %}
+
+        <div class="row well">
+
+            {{ form_start(edit_form) }}
+           <div class="col-sm-4" style="margin-left: 30%">
+            {{ form_widget(edit_form) }}
+           </div>
+            {#<input type="submit" value="Modifier"  class="btn btn-success"/>#}
+            {{ form_end(edit_form) }}
+
+            <ul  class="pull-right" style="margin-top: 75%;" >
+                <li>
+                    <a href="{{ path('ucbl_pidji_mes_annonces') }}"><i class="fa fa-arrow-left"></i> Revenir à mes annonces</a>
+                </li>
+            </ul>
+
+        </div>
+
+
+    </div>
+
+{% endblock %}

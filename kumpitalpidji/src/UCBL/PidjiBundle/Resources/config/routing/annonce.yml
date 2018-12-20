@@ -1,0 +1,24 @@
+back-office_annonce_index:
+    path:     /
+    defaults: { _controller: "UCBLPidjiBundle:Annonce:index" }
+    methods:  GET
+
+back-office_annonce_show:
+    path:     /{id}/show
+    defaults: { _controller: "UCBLPidjiBundle:Annonce:show" }
+    methods:  GET
+
+back-office_annonce_new:
+    path:     /new
+    defaults: { _controller: "UCBLPidjiBundle:Annonce:new" }
+    methods:  [GET, POST]
+
+back-office_annonce_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "UCBLPidjiBundle:Annonce:edit" }
+    methods:  [GET, POST]
+
+back-office_annonce_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "UCBLPidjiBundle:Annonce:delete" }
+    methods:  DELETE

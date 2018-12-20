@@ -1,0 +1,54 @@
+ucbl_pidji_back-office_annonce:
+    resource: "@UCBLPidjiBundle/Resources/config/routing/Annonce.yml"
+    prefix:   /back-office/Annonce
+
+
+ucbl_pidji_back-office_categorie:
+    resource: "@UCBLPidjiBundle/Resources/config/routing/categorie.yml"
+    prefix:   /back-office/categorie
+
+ucbl_pidji_back-office_type:
+    resource: "@UCBLPidjiBundle/Resources/config/routing/type.yml"
+    prefix:   /back-office/type
+
+ucbl_pidji_back-office_images:
+    resource: "@UCBLPidjiBundle/Resources/config/routing/images.yml"
+    prefix:   /back-office/image
+
+ucbl_pidji_accueil:
+    path:     /
+    defaults: { _controller: UCBLPidjiBundle:Kumpital:accueil }
+
+ucbl_pidji_mes_annonces:
+    path:     /utilisateur/mes-annonces
+    defaults: { _controller: UCBLPidjiBundle:Kumpital:mesAnnonce }
+
+
+ucbl_pidji_mes_annonces_modifier:
+    path:     /utilisateur/mes-annonces/modifier/{id}
+    defaults: { _controller: UCBLPidjiBundle:Kumpital:mesAnnonceModifier }
+    requirements:
+        id: \d+
+
+ucbl_pidji_deposer_annonce:
+    path:     /utilisateur/deposer_annonce
+    defaults: { _controller: UCBLPidjiBundle:Kumpital:deposerAnnonce }
+
+
+
+
+ucbl_pidji_offres_demandes:
+    path:     /utilisateur/{libelle}
+    defaults: { _controller: UCBLPidjiBundle:Kumpital:offreEtDemandes }
+
+
+ucbl_pidji_annonce_details:
+    path:     /utilisateur/{libelleAnnonce}/{id}
+    defaults: { _controller: UCBLPidjiBundle:Kumpital:details }
+    requirements:
+        id: \d+
+
+
+ucbl_pidji_user_connecter:
+    path:     /utilisateur/espace-perso/index
+    defaults: { _controller: UCBLPidjiBundle:Kumpital:userConnecter }

@@ -1,0 +1,103 @@
+<?php
+
+namespace UCBL\PidjiBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Images
+ *
+ * @ORM\Table(name="images")
+ * @ORM\Entity(repositoryClass="UCBL\PidjiBundle\Repository\ImagesRepository")
+ */
+class Images
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @var \DateTime
+     * @ORM\Column(name="uploadAt", type="datetime", nullable=false)
+     */
+    private $uploadAt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="UCBL\PidjiBundle\Entity\Annonce", inversedBy="images" )
+     * @ORM\JoinColumn(nullable=false)
+     *
+     *
+     */
+    private  $annonce;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Images
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set annonce
+     *
+     * @param \UCBL\PidjiBundle\Entity\Annonce $annonce
+     *
+     * @return Images
+     */
+    public function setAnnonce(\UCBL\PidjiBundle\Entity\Annonce $annonce)
+    {
+        $this->annonce = $annonce;
+
+        return $this;
+    }
+
+    /**
+     * Get annonce
+     *
+     * @return \UCBL\PidjiBundle\Entity\Annonce
+     */
+    public function getAnnonce()
+    {
+        return $this->annonce;
+    }
+}

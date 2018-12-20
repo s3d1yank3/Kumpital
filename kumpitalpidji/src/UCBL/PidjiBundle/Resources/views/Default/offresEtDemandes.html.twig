@@ -1,0 +1,47 @@
+{% extends "UCBLPidjiBundle::layout.html.twig" %}
+
+{% block titre %}
+
+{% endblock %}
+
+{% block css %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{asset("bundles/ucblpidji/css/style.css") }}">
+
+{% endblock %}
+
+
+{% block contenuPrincipal %}
+
+    <div class="container" style="margin-top: 5%;">
+
+         <div class="row">
+            {% for contenu in listeContenu %}
+                <div class="col-md-4">
+                    <div class="single-blog-item">
+                        <div class="blog-thumnail">
+                            {% for img in contenu.images %}
+                                {% if loop.index == 1 %}
+                                    <a href=""><img src="{{ asset('uploadedFiles/annonce_image/'~img.nom) }}" alt="blog-img"></a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="blog-content">
+                            <h4><a href="#">{{contenu.titre   }}</a></h4>
+                            <p>
+                                {{ contenu.description | slice(0, 40)  }} ...
+                            </p>
+                            <div class="essai">
+                                <h3>{{ contenu.prix }} <i class="fa  fa-euro"></i> </h3>
+                                <a href="{{ path("ucbl_pidji_annonce_details",{ 'id': contenu.id, 'libelleAnnonce': contenu.types.libelle | lower})}}" class="more-btn">Details</a>
+                            </div>
+                        </div>
+                        <span class="blog-date">{{ contenu.dateAnnonce |date('d/m/Y, H:m')  }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock %}
